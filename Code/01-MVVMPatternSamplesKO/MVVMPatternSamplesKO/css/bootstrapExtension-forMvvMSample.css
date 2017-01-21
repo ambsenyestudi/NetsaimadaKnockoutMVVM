@@ -1,0 +1,20 @@
+﻿::-ms-clear {
+  display: none;
+}
+
+.form-control-clear {
+  z-index: 10;
+  pointer-events: auto;
+  cursor: pointer;
+}
+/*esto no va*/
+#productForm .form-control-feedback  {
+    pointer-events: all;
+}
+#productForm .form-control-feedback:hover {
+    cursor: pointer;
+    background:red;
+}
+
+
+

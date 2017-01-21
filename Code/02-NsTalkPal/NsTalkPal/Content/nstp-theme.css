@@ -1,0 +1,87 @@
+﻿body {
+}
+.nstp-panel-heading
+{
+    background-color:#ff6a00;
+    padding: 10px 15px;
+    border-radius:5px 5px 0 0;
+    font-weight:bold;
+    color:white;
+}
+.nstp-tl-rouned
+{
+    border-radius:15px 0 0 0;    
+}
+.nstp-bl-rouned
+{
+    border-radius:0 0 0 15px;  
+}
+.nstp-tr-rouned
+{
+    border-radius:0 15px 0 0;
+    padding-top:10px;
+}
+.nstp-br-rouned
+{
+    border-radius:0 0 15px 0;  
+}
+.bg-netsaimada
+{
+    background-color:#ff6a00;
+    font-weight:bold;
+    color:white;
+}
+.bg-clear-netsaimada
+{
+    background-color:#ffcc99
+}
+.nstp-tl-frame
+{
+    border-left:3px;
+    border-top: 3px;
+    border-right:0; 
+    border-bottom:0;    
+    border-style:solid;
+    border-color:#ffddaa;
+    padding: 10px 5px 3px 10px;
+}
+.nstp-roundpic-frame
+{
+    padding:5px;
+    border-radius:50px;
+    max-width : 110px;
+    vertical-align : central;
+}
+.nstp-roundpic-frame img
+{
+    max-width : 100px;
+    max-height : 100px;
+}
+.btn-nstp {
+    color: #fff;
+    background-color:#ff6a00;
+    border-color:#ffddaa;
+}
+.netsaimadaIcon{
+    width:100px;
+    height:100px;
+}
+.nstp-info-header{
+    padding:10px 40px;
+    font-size:24px;
+    color:#ff6a00;
+    font-weight:bold;
+}
+.nstp-info-panel{
+    padding:10px 40px;
+}
+.nstp-hud-img {
+    width:35px;
+    height:35px;
+}
+.nstp-thum-img{
+    width:35px;
+    height:35px;
+    padding:0;
+    margin:0;
+}

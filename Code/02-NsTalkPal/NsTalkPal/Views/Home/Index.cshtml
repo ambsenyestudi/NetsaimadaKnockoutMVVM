@@ -1,0 +1,61 @@
+﻿@using NsTalkPal.Models
+
+@model IEnumerable<UserProfile> 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+@section Scripts {
+     <script>
+         function sendAjaxRequest(httpMethod, callback, url) {
+             $.ajax("/api/web" + (url ? "/" + url : ""), {
+                 type: httpMethod, success: callback
+             });
+         }
+
+         $(document).ready(function () {
+             var summaryViewModel = new SummaryViewModel();
+             var loginViewModel = new LoginViewModel();
+             var userHUDViewModel = new UserHUDViewModel();
+             var editorViewModel = new EditorViewModel(summaryViewModel, loginViewModel, userHUDViewModel);
+             summaryViewModel.getAllItems();
+             ko.applyBindings(summaryViewModel, document.getElementById('summaryView'));
+             ko.applyBindings(loginViewModel, document.getElementById('loginView'));
+             ko.applyBindings(editorViewModel, document.getElementById('editorView'));
+             ko.applyBindings(userHUDViewModel, document.getElementById('userHudView'));
+         });
+     </script>    
+}
+
+@section Body {
+    <div class="panel-heading">
+        <div class="nstp-panel-heading">
+            <div>
+                <!--clear textinput work in proggress-->
+                <div class="alert alert-dismissible" role="alert" style="background:white; ">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="z-index:20; color:gray"><span aria-hidden="true">&times;</span></button>
+                    <input type="text" style="border:none" placeholder="this is a test"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-6">
+                    @Html.Partial("_SearchView")
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+                    @Html.Partial("_UserHUD")
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="signin" class="panel-heading">
+        @Html.Partial("_SignInPage", Model)
+    </div>
+    <div id="eventsCalendar" class="panel-body">
+        @Html.Partial("_Calendar")
+    </div>
+    <div id="summary" class="panel-body">
+        @Html.Partial("_Summary", Model)
+    </div>
+
+}
+

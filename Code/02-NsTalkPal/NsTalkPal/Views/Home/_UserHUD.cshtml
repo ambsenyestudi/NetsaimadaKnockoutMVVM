@@ -1,0 +1,59 @@
+﻿<div id="userHudView" data-bind="visible: isHud">
+
+    <div class="col-xs-12 col-sm-3 media">
+        <div class="media-left">
+            <img data-bind="attr:{ src: ProfilePictureSource}" class="media-object nstp-hud-img" alt="Profile Picture" src="~/Content/images/loading_spinner.gif" />
+        </div>
+        <div class="media-body">
+            <p class="media-heading" data-bind="text: Name"></p>
+        </div>
+    </div>
+    <ul class="col-xs-12 col-sm-6 nav nav-pills">
+        <li>
+            <button class="badge btn btn-default">
+                <span class="glyphicon glyphicon-envelope"></span>
+                <!-- ko if: IsMailNotification -->
+                <p data-bind="text:NMailNotifications" class="visible-lg-inline visible-md-inline visible-sm-inline"></p>
+                <!--/ko -->
+            </button>
+        </li>
+        <li>
+            <button class="badge btn btn-default">
+                <span class="glyphicon glyphicon-calendar"></span>
+                <!-- ko if: IsEventNotification -->
+                <p data-bind="text:NEventNotifications" class="visible-lg-inline visible-md-inline visible-sm-inline"></p>
+                <!--/ko -->
+            </button>
+        </li>
+        <li>
+            <button class="badge btn btn-default">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                <!-- ko if: IsNewsNotification -->
+                <p data-bind="text:NNewsNotifications" class="visible-lg-inline visible-md-inline visible-sm-inline"></p>
+                <!--/ko -->
+            </button>
+        </li>
+        <li>
+            <button class="badge btn btn-default">
+                <span class="glyphicon glyphicon-exclamation-sign "></span>
+                <!-- ko if: IsWarningsNotification -->
+                <p data-bind="text:NWarningsNotifications" class="visible-lg-inline visible-md-inline visible-sm-inline"></p>
+                <!-- /ko -->
+            </button>
+        </li>
+    </ul>
+    <div class="col-xs-12 col-sm-3" data-bind="foreach: { data: NStars}">
+
+        <!--$data jQuery way to say value of the context attibute data
+            and because NStars is an array of bool
+            we can evaluate and if clause-->
+
+        <!--ko if: $data-->
+        <span class="glyphicon glyphicon-star"></span>
+        <!--/ko-->
+        <!--ko ifnot: $data-->
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <!--/ko-->
+    </div>
+
+</div>

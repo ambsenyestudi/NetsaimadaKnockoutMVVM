@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Two Way data-binding</title>
+	<meta charset="utf-8" />
+    <!--Imports section-->
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../js/jquery-2.2.1.js"></script>
+    <script src="../js/knockout-3.4.0.js"></script>
+    <script src="../js/Model/ContactInfoModel.js"></script>
+    <script src="../js/ViewModel/OneTimeViewModel.js"></script>
+    <!--End imports section-->
+</head>
+<body>
+    <div class="panel-heading bg-primary text-center">
+        <h2>
+            Two Way to model data-binding
+        </h2>
+    </div>
+    <div class="panel-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="panel-heading bg-primary">
+                        <h3>Data Origin</h3>
+                    </div>
+                    <div class="panel-body">
+                        <!--this is new data-bind="with:model"-->
+                        <form data-bind="with:model">
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4" for="name">Name</label>
+                                <div class="col-xs-12 col-sm-9 col-md-8">
+                                    <input type="text" class="form-control" id="name" data-bind="textInput:name" placeholder="Enter your first name" required /><br />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4" for="surname">Surname</label>
+                                <div class="col-xs-12 col-sm-9 col-md-8">
+                                    <input type="text" class="form-control" id="surname" data-bind="textInput:surname" placeholder="Enter your last name" required /><br />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 col-md-4" for="email">Phone number</label>
+                                <div class="col-xs-12 col-sm-9 col-md-8">
+                                    <input type="text" class="form-control" id="phone" data-bind="textInput:phone" placeholder="Enter your phone number" required /><br />
+                                </div>
+                            </div>
+                            
+                            <div class="bg-info col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                <p>Since we are binding two ways this button is utterly useless now</p>
+                                <button class="btn btn-default">Update</button>
+                            </div>                            
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-6">
+                    <div class="panel-heading bg-primary">
+                        <h3>Data Panel</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-12">
+                            <!--executing the observable like text:model()
+                                you automatically get a one way read-only binding-->
+                            <div>
+                                <strong>Name:</strong>
+                                <span data-bind="text:model.name()"></span><br />
+                                <strong>Surname:</strong>
+                                <span data-bind="text:model.surname()"></span><br />
+                                <strong>Stock:</strong>
+                                <span data-bind="text:model.phone()"></span>
+                            </div>
+                            <!--this another way to do it is-->
+                            <div class="bg-primary" data-bind="with:model">
+                                <strong>Name:</strong>
+                                <span data-bind="text:name"></span><br />
+                                <strong>Surname:</strong>
+                                <span data-bind="text:surname"></span><br />
+                                <strong>Stock:</strong>
+                                <span data-bind="text:phone"></span>
+                            </div>
+                           
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        /*Super important this script must be added after all the doom or
+        else js won't find the properties of the binding*/
+        var model = ContactInfoModel('John', 'Doe', '555-213-213');
+        var oneTimeViewModel = new OneTimeViewModel(model);
+        ko.applyBindings(oneTimeViewModel);
+    </script>
+</body>
+</html>
