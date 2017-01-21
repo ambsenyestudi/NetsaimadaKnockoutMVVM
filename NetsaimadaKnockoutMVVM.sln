@@ -14,6 +14,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMPatternSamplesKO", "Code\01-MVVMPatternSamplesKO\MVVMPatternSamplesKO\MVVMPatternSamplesKO.csproj", "{1FBCE09E-1EF6-4244-91F0-778C29B360AD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{CC620508-8BCC-47FC-AB5E-F608D7C55D4F}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Downloads\MVVMKonckoutJS.pptx = ..\..\..\..\Downloads\MVVMKonckoutJS.pptx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
